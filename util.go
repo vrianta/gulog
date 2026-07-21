@@ -1,4 +1,4 @@
-package log
+package gulog
 
 import (
 	"encoding/json"

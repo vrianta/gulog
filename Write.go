@@ -1,4 +1,4 @@
-package log
+package gulog
 
 // this is global log writing
 import (
