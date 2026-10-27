@@ -60,6 +60,12 @@ func startLogging() {
 			if !c.NoLog {
 				fmt.Printf("%s[%s] %s: %s\033[0m\n", msg.color, msg.timestamp, msg.level, msg.data)
 			}
+
+			if c.File != "" {
+				if err := os.WriteFile(c.File, []byte(msg.data), fs.ModePerm); err != nil {
+					fmt.Errorf("Failed to save the log in %s \nreason: %s", c.File, err.Error())
+				}
+			}
 		}
 
 		waitG.Done()
